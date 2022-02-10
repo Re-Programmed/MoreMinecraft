@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Chunk;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -29,6 +29,33 @@ public class ScoreboardManager {
     	
     	Score score = obj.getScore(p);
     	score.setScore(scoreval);
+	}
+	
+	@SuppressWarnings("deprecation")
+	public static ArrayList<String> getPlayersInBoard(String objective, int valcheck)
+	{
+		ArrayList<String> str = new ArrayList<String>();
+		org.bukkit.scoreboard.ScoreboardManager manager = Bukkit.getScoreboardManager();
+    	Scoreboard board = manager.getMainScoreboard();
+    	Objective obj = board.getObjective(objective);
+    	
+    	if(obj == null)
+    	{
+    		obj = board.registerNewObjective(objective, "dummy");
+    	}
+    	
+    	for(String s : board.getEntries())
+    	{
+    		if(obj.getScore(s) != null)
+    		{
+    			if(obj.getScore(s).getScore() == valcheck)
+    			{
+    				str.add(objective);
+    			}
+    		}
+    	}
+    	
+    	return str;
 	}
 	
 	@SuppressWarnings("deprecation")

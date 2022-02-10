@@ -62,6 +62,8 @@ public class Main extends JavaPlugin {
 		
 		Items.RegisterItems();
 		
+		getServer().getPluginManager().registerEvents(new JoinAnnouncement(), this);
+		
 		getServer().getPluginManager().registerEvents(new BlockEvents(), this);
 		getServer().getPluginManager().registerEvents(new ItemEvents(), this);
 
