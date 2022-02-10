@@ -106,7 +106,7 @@ Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable()
 			public void run() { 
 				DecayTick++;
 				
-				if(DecayTick >= 55)
+				if(DecayTick >= 105)
 				{
 					DecayTick = 0;
 					for(Player p : Bukkit.getOnlinePlayers())
