@@ -1,5 +1,5 @@
 # MoreMinecraft
-A Minecraft Plugin.
+A Minecraft Spigot Plugin. 
 
 Adds more items, mobs, and blocks to Minecraft.
 
